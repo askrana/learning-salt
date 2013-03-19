@@ -8,10 +8,10 @@ Vagrant::Config.run do |config|
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "precise32"
-  config.vm.share_folder "salt_file_root", "/srv/salt", "/home/bmorriso/localrepository/learning-salt"
+  config.vm.share_folder "salt_file_root", "/srv/salt", Dir.pwd
 #  config.vm.share_folder "salt_pillar_root", "/srv/pillar", "/home/bmorriso/localrepository/web01-salt-pillar"
   config.vm.provision :salt do |salt|
-    salt.minion_config = "/home/bmorriso/localrepository/learning-salt/minion.conf"
+    salt.minion_config = Dir.pwd + "/minion.conf"
     salt.run_highstate = true
     salt.salt_install_type = "stable"
     end
