@@ -8,17 +8,17 @@ Vagrant::Config.run do |config|
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "precise32"
-  config.vm.share_folder "salt_file_root", "/srv/salt", "/home/bmorriso/localrepository/learning-salt"
+  config.vm.share_folder "salt_file_root", "/srv/salt", Dir.pwd
 #  config.vm.share_folder "salt_pillar_root", "/srv/pillar", "/home/bmorriso/localrepository/web01-salt-pillar"
   config.vm.provision :salt do |salt|
-    salt.minion_config = "/home/bmorriso/localrepository/learning-salt/minion.conf"
+    salt.minion_config = Dir.pwd + "/minion.conf"
     salt.run_highstate = true
     salt.salt_install_type = "stable"
     end
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  # config.vm.box_url = "http://domain.com/path/to/above.box"
+  config.vm.box_url = "http://files.vagrantup.com/precise32.box"
 
   # Boot with a GUI so you can see the screen. (Default is headless)
   # config.vm.boot_mode = :gui
