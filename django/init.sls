@@ -8,6 +8,7 @@ include:
         - runas: vagrant
         - requirements: salt://django/requirements.txt
         - require:
+            - pkg: postgresql-server-dev-9.1
             - pkg: python-virtualenv
 
 create Django project:
