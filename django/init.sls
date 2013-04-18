@@ -50,4 +50,4 @@ base.py:
         - source: salt://django/base.py
         - template: jinja
         - require:
-            - postgres_user: django_user
+            - postgres_user: djangouser
