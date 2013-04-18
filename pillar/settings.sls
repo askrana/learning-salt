@@ -4,4 +4,5 @@ dbuser: django
 dbpassword: password 
 dbhost: localhost
 dbport: 5432
+secret_key: secret_key
 
