@@ -22,6 +22,7 @@ syncdb --noinput"
         - require:
             - virtualenv: /home/vagrant/learning-salt/venv
             - pkg: python-dev
+            - postgres_user: djangouser
 
 djangouser:
     postgres_user.present:
@@ -42,3 +43,11 @@ djangodb:
         - runas: postgres
         - require:
             - postgres_user: djangouser
+
+file.managed:
+    - name:
+      /home/vagrant/learning-salt/icecream/icecream/icecream/settings/base.py
+    - source: salt://django/base.py
+    - template: jinja
+    - require:
+        - postgres_user: django_user
