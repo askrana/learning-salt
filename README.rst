@@ -22,3 +22,27 @@ The block below is a tree output as of 2013/03/12
     ├── top.sls
     └── Vagrantfile
 
+
+
+tree output on 2013/04/17 (blog post coming soon!)
+
+.. code-block:: shell
+
+    .
+    ├── django
+    │   ├── base.py
+    │   ├── init.sls
+    │   └── requirements.txt
+    ├── minion.conf
+    ├── pillar
+    │   ├── settings.sls
+    │   └── top.sls
+    ├── postgresql
+    │   ├── init.sls
+    │   └── pg_hba.conf
+    ├── README.rst
+    ├── requirements
+    │   └── init.sls
+    ├── top.sls
+    └── Vagrantfile
+
