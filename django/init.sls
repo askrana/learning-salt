@@ -1,5 +1,6 @@
 include:
     - requirements
+    - postgresql
 
 /home/vagrant/learning-salt/venv:
     virtualenv.managed:
@@ -21,3 +22,23 @@ syncdb --noinput"
         - require:
             - virtualenv: /home/vagrant/learning-salt/venv
             - pkg: python-dev
+
+djangouser:
+    postgres_user.present:
+        - name: {{ pillar['dbuser'] }}
+        - password: {{ pillar['dbpassword'] }}
+        - runas: postgres
+        - require:
+            - service: postgresql
+
+djangodb:
+    postgres_database.present:
+        - name: {{ pillar['dbname'] }}
+        - encoding: UTF8
+        - lc_ctype: en_US.UTF8
+        - lc_collate: en_US.UTF8
+        - template: template0
+        - owner: {{ pillar['dbuser'] }}
+        - runas: postgres
+        - require:
+            - postgres_user: djangouser
