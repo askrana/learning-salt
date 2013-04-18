@@ -43,11 +43,10 @@ djangodb:
         - runas: postgres
         - require:
             - postgres_user: djangouser
-
-file.managed:
-    - name:
-      /home/vagrant/learning-salt/icecream/icecream/icecream/settings/base.py
-    - source: salt://django/base.py
-    - template: jinja
-    - require:
-        - postgres_user: django_user
+base.py:
+    file.managed:
+        - name: /home/vagrant/learning-salt/icecream/icecream/icecream/settings/base.py
+        - source: salt://django/base.py
+        - template: jinja
+        - require:
+            - postgres_user: django_user
