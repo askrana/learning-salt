@@ -9,6 +9,7 @@ include:
         - requirements: salt://django/requirements.txt
         - require:
             - pkg: postgresql-server-dev-9.1
+            - pkg: python-dev
             - pkg: python-virtualenv
 
 create Django project:
@@ -23,7 +24,7 @@ syncdb --noinput"
         - require:
             - virtualenv: /home/vagrant/learning-salt/venv
             - pkg: python-dev
-            - postgres_user: djangouser
+            - file: pg_hba.conf
 
 djangouser:
     postgres_user.present:
