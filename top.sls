@@ -2,3 +2,4 @@ base:
     '*':
         - requirements
         - django
+        - postgresql
