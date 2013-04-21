@@ -24,7 +24,8 @@ The block below is a tree output as of 2013/03/12
 
 
 
-tree output on 2013/04/17 (blog post coming soon!)
+tree output on 2013/04/17 blog post:
+http://www.barrymorrison.com/2013/Apr/21/deploying-django-with-salt-now-with-postgresql/
 
 .. code-block:: shell
 
