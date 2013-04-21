@@ -3,3 +3,4 @@ packages:
         - names:
             - python-virtualenv
             - python-dev
+            - libpq-dev
