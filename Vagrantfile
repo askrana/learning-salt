@@ -13,7 +13,7 @@ Vagrant::Config.run do |config|
   config.vm.provision :salt do |salt|
     salt.minion_config = Dir.pwd + "/minion.conf"
     salt.run_highstate = true
-    salt.salt_install_type = "stable"
+    salt.install_type = "stable"
     end
 
   # The url from where the 'config.vm.box' box will be fetched if it
@@ -36,7 +36,7 @@ Vagrant::Config.run do |config|
 
   # Forward a port from the guest to the host, which allows for outside
   # computers to access the VM, whereas host only networking does not.
-  config.vm.forward_port 8000, 8000
+  config.vm.forward_port 80, 8000
 
   # Share an additional folder to the guest VM. The first argument is
   # an identifier, the second is the path on the guest to mount the
